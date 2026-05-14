@@ -12,3 +12,6 @@ plotly
 streamlit
 openpyxl
 joblib
+imbalanced-learn
+chromadb
+groq
