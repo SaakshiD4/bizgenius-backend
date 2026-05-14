@@ -1184,20 +1184,44 @@ def news(domain: str = Query("SaaS")):
 
 
 # ─── Analytics Dataset ────────────────────────────
+# @app.get("/analytics")
+# def analytics():
+#     try:
+#         import pandas as pd
+#         csv_path = os.path.join(
+#             os.path.dirname(__file__), "..", "data", "synthetic_startups.csv"
+#         )
+#         if os.path.exists(csv_path):
+#             df = pd.read_csv(csv_path)
+#             return {"data": df.to_dict(orient="records")}
+#     except Exception as e:
+#         print("Analytics error:", e)
+#     return {"data": []}
+# ─── Analytics Dataset ────────────────────────────
 @app.get("/analytics")
 def analytics():
     try:
         import pandas as pd
+
         csv_path = os.path.join(
-            os.path.dirname(__file__), "..", "data", "synthetic_startups.csv"
+            os.path.dirname(__file__),
+            "data",
+            "synthetic_startups.csv"
         )
+
+        print("CSV PATH:", csv_path)
+
         if os.path.exists(csv_path):
             df = pd.read_csv(csv_path)
+            print("CSV Loaded:", len(df))
             return {"data": df.to_dict(orient="records")}
+
+        print("CSV NOT FOUND")
+
     except Exception as e:
         print("Analytics error:", e)
-    return {"data": []}
 
+    return {"data": []}
 
 # ─── PDF Report ───────────────────────────────────
 @app.post("/generate-report")
