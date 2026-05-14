@@ -37,5 +37,7 @@ class Config:
     SCALER_PATH            = os.path.join(MODELS_DIR, "scaler_next_round.pkl")
     FEATURES_PATH          = os.path.join(MODELS_DIR, "features_next_round.pkl")
 
-    CHROMA_DIR = os.path.join(BASE_DIR, "..", "chroma_db")
-    DATA_DIR   = os.path.join(BASE_DIR, "..", "data")
+    # CHROMA_DIR = os.path.join(BASE_DIR, "..", "chroma_db")
+    # DATA_DIR   = os.path.join(BASE_DIR, "..", "data")
+    CHROMA_DIR = os.path.join(BASE_DIR, "chroma_db")
+    DATA_DIR   = os.path.join(BASE_DIR, "data")
